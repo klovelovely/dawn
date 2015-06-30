@@ -1,0 +1,99 @@
+/** css reset **/
+html,body,iframe,object,embed,h1,h2,h3,h4,h5,h6,p,span,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ul,ol,li,fieldset,legend,form,label,input,button,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6,button,input,select,textarea,code,kbd,optgroup,option,pre,samp { font-size:100%;}
+address,cite,dfn,em,optgroup,option { font-style:normal;}
+ul, dl, li { list-style:none; }
+img { border:0 none;}
+table { border-collapse:collapse;}
+
+/** 常用类* */
+.clear{ clear:both;font-size:0;height:0;overflow:hidden;}
+.clearfix{ zoom:1;}
+.clearfix:after{ content:' ';display:block;clear:both;visibility:hidden;font-size:0;height:0;}
+.fll { float:left;} 
+.flr { float:right;}
+.disn { display:none;} 
+.layout_p1{ padding:1em;}
+.hidden_accessbility { visibility:hidden; position:absolute;}
+
+/** 组件 - 图标 **/
+.ui_icon { display:inline-block;margin-right:1em;vertical-align:middle;overflow:hidden;background-image:url(../images/sprite_icon.png); background-repeat:no-repeat;}
+.ui_icon_success { width:50px;height:32px;margin-right:15px;background-position:0 0;}
+.ui_icon_error { width:50px;height:32px;margin-right:15px;background-position:0 -32px;}
+
+/** 组件 - 按钮 **/
+.ui_form{}
+.ui_form .input,
+.ui_form .button { margin:.3em;border-radius:.1em;outline:none;}
+.ui_form .input { padding:.4em; border:1px solid #d2d2d2;background:#fafafa;box-shadow:inset 1px 1px 4px rgba(0,0,0,.1);}
+.ui_form .input:hover,
+.ui_form .input:active,
+.ui_form .input:focus { border-color:#d20140;background:#fff;box-shadow:0 0 5px rgba(0,0,0,.1);}
+.ui_form .button { padding:.5em 1em; border:0 none;background:#d20140;cursor:pointer;color:#fafafa;}
+.ui_form .button:hover,
+.ui_form .button:active { background:#b80138;box-shadow:inset 2px 2px 4px rgba(0,0,0,.2);}
+.ui_form .primary { padding:.6em 1.2em;font-size:16px;}
+
+/** 组件 - kbox **/
+.kbox { padding-top:.4em;padding-bottom:.4em;}
+.kbox .hd { font-weight:bold;font-size:1.25em;color:#dd5a00;border-bottom:1px dotted #f6f6f6;}
+.kbox .bd { font-size:1em;}
+.kbox .bd p { text-indent:2em;}
+
+/** 组件 - module_result_box **/
+.module_result_box { }
+.module_result_box .result { padding:1em;line-height:3em; }
+.module_result_box .result .text { font-size:1.4em;}
+.module_result_box .result .extra { font-size:1em;}
+.module_result_box .result_success,
+.module_result_box .result_error { border-bottom:1px dotted #dddddd;text-align:center;}
+.module_result_box .result_success .text { color:#7abd54;}
+.module_result_box .result_error .text { color:#c40000;}
+.module_result_box .result_desc { }
+.module_result_box .result_desc p { text-indent:0;}
+
+/** 全局 **/
+html { overflow-y:scroll;}
+body { font-family: Helvetica,STHeiti,Droid Sans Fallback,'Microsoft Yahei'; font-size: 100%; line-height:2; background: #fdeb75; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; color:#222;}
+a { color:#d55700; text-decoration:none;}
+.wrapper { width:640px;margin-left:auto;margin-right:auto;}
+
+/** 头部 **/
+#header .wrapper{}
+
+/** 内容 **/
+#container .wrapper { 
+	position:relative;
+	padding:1.5em 0;
+	min-height:3em;
+	background:#fff;
+	border-radius:4px;
+}
+
+/** 底部 **/
+#footer { width:100%;padding:1em 0;line-height:2;text-align:center;color:#d55700;}
+
+
+	/* 小于640px */
+@media all and (max-width:639px){
+	
+	.wrapper { 
+		width:100%;
+	}
+	.wrapper .photo { 
+		max-width:100%;
+		height:auto;
+	}
+	.wrapper .banner_foot .photo {
+		width:100%;
+	}
+	
+}
+	/* 小于480px */
+@media all and (max-width:479px){
+
+}
+	/* 小于360px */
+@media all and (max-width:359px){
+
+}

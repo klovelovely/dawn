@@ -1,0 +1,495 @@
+/**
+* 全局页面样式文件
+* 包含：
+* CSS reset		 - 包含HTML5新标签 reset
+* 常用类			 - 常用CSS属性的对应类名，如：clearfix,layout...
+* 全局模块类		 - 全局可重用页面模块预定义
+* etc...
+**/
+
+/**
+* @name     : CSS reset
+* @author   : kang
+* @desc 	:
+**/
+html,body,iframe,object,embed,h1,h2,h3,h4,h5,h6,p,span,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,legend,form,label,input,button,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;}h1,h2,h3,h4,h5,h6,button,input,select,textarea,code,kbd,optgroup,option,pre,samp{font-size:100%;}address,cite,dfn,em,var,optgroup,option{font-style:normal;}ul,ol,dl,li{list-style:none;}img{border:0 none;-ms-interpolation-mode:bicubic;}table{border-collapse:collapse;border-spacing:0;}section,article,aside,header,footer,nav,dialog,figure{display:block;}audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
+/** end **/
+
+/**
+* @name     : 常用类 - 清除浮动、定位、布局、外观等
+* @author   : kang
+* @desc 	:
+*/
+.clear{clear:both;font-size:0;height:0;overflow:hidden;}.clearfix{zoom:1;}.clearfix:after{content:' ';display:block;clear:both;visibility:hidden;font-size:0;height:0;}.hidden-accessbility{position:absolute;visibility:hidden;}.x-layout-disn{display:none;}.x-layout-disb{display:block;}.x-layout-vam{vertical-align:middle;}.x-layout-m5{margin:5px;}.x-layout-mw5{margin-left:5px;margin-right:5px;}.x-layout-mh5{margin-top:5px;margin-bottom:5px;}.x-layout-mt5{margin-top:5px;}.x-layout-mb5{margin-bottom:5px;}.x-layout-ml5{margin-left:5px;}.x-layout-mr5{margin-right:5px;}.x-layout-p5{padding:5px;}.x-layout-pw5{padding-left:5px;padding-right:5px;}.x-layout-ph5{padding-top:5px;padding-bottom:5px;}.x-layout-pt5{padding-top:5px;}.x-layout-pb5{padding-bottom:5px;}.x-layout-pl5{padding-left:5px;}.x-layout-pr5{padding-right:5px;}.x-layout-m10{margin:10px;}.x-layout-mw10{margin-left:10px;margin-right:10px;}.x-layout-mh10{margin-top:10px;margin-bottom:10px;}.x-layout-mt10{margin-top:10px;}.x-layout-mb10{margin-bottom:10px;}.x-layout-ml10{margin-left:10px;}.x-layout-mr10{margin-right:10px;}.x-layout-p10{padding:10px;}.x-layout-pw10{padding-left:10px;padding-right:10px;}.x-layout-ph10{padding-top:10px;padding-bottom:10px;}.x-layout-pt10{padding-top:10px;}.x-layout-pb10{padding-bottom:10px;}.x-layout-pl10{padding-left:10px;}.x-layout-pr10{padding-right:10px;}.x-layout-m15{margin:15px;}.x-layout-mw15{margin-left:15px;margin-right:15px;}.x-layout-mh15{margin-top:15px;margin-bottom:15px;}.x-layout-mt15{margin-top:15px;}.x-layout-mb15{margin-bottom:15px;}.x-layout-ml15{margin-left:15px;}.x-layout-mr15{margin-right:15px;}.x-layout-p15{padding:15px;}.x-layout-pw15{padding-left:15px;padding-right:15px;}.x-layout-ph15{padding-top:15px;padding-bottom:15px;}.x-layout-pt15{padding-top:15px;}.x-layout-pb15{padding-bottom:15px;}.x-layout-pl15{padding-left:15px;}.x-layout-pr15{padding-right:15px;}.x-layout-m20{margin:20px;}.x-layout-mw20{margin-left:20px;margin-right:20px;}.x-layout-mh20{margin-top:20px;margin-bottom:20px;}.x-layout-mt20{margin-top:20px;}.x-layout-mb20{margin-bottom:20px;}.x-layout-ml20{margin-left:20px;}.x-layout-mr20{margin-right:20px;}.x-layout-p20{padding:20px;}.x-layout-pw20{padding-left:20px;padding-right:20px;}.x-layout-ph20{padding-top:20px;padding-bottom:20px;}.x-layout-pt20{padding-top:20px;}.x-layout-pb20{padding-bottom:20px;}.x-layout-pl20{padding-left:20px;}.x-layout-pr20{padding-right:20px;}.x-layout-m30{margin:30px;}.x-layout-p30{padding:30px;}.x-layout-m40{margin:40px;}.x-layout-p40{padding:40px;}.x-layout-m50{margin:50px;}.x-layout-p50{padding:50px;}
+/** end **/
+
+/**
+* @name     : 全局模块类 - 盒模型、图标、表单、按钮等资源
+* @author   : kang
+* @desc 	:
+*/
+/** 组件 - 通用box模型 **/
+.x-box { position:relative;}
+	/* hd */
+.x-box .hd { height:30px;border:1px solid #ddd;border-top:2px solid #999;border-bottom:0 none;overflow:hidden;}
+.x-box .hd .title { font-weight:bold;font-family:'Microsoft Yahei','Hiragino Sans GB',Helvetica,Arial,sans-serif;}
+.x-box .hd * { vertical-align:middle;}
+	/* bd */
+.x-box .bd { border:1px solid #ddd;}
+	/* ft */
+.x-box .ft { position:absolute;right:5px;top:0;}
+.x-box .ft .item { display:inline;padding-left:10px;line-height:30px;}
+
+/* skin orange */
+.x-box-orange .hd { border-color:#f60;}
+.x-box-orange .bd { border-color:#f60;}
+
+/** end **/
+
+/**
+* @name		: 全局组件 - 表单样式（默认UI）
+* @author	: kang
+* @desc 	: 提供统一的表单视觉效果，包含表单框架、表单元素UI（输入框、按钮等）
+*/
+
+/** reset **/
+.ui-form-default,
+.ui-form-default input,
+.ui-form-default button,
+.ui-form-default textarea {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+.ui-form-default span,
+.ui-form-default strong,
+.ui-form-default label,
+.ui-form-default input,
+.ui-form-default button,
+.ui-form-default textarea {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/** 默认盒子样式 **/
+.message-box {
+    margin: 5px 0;
+    font-size: 12px;
+}
+.message-box [class*='msg-'] {
+    padding: 0 5px;
+    border: 1px solid #eee;
+    background-color: #fefefe;
+}
+/* 正确 */
+.message-box .msg-success {
+    border: 1px solid #c7e5b8;
+    background-color: #f0ffe5;
+}
+/* 错误 */
+.message-box .msg-error {
+    border: 1px solid #e5c3c3;
+    background-color: #fff2f2;
+}
+/* 警告 */
+.message-box .msg-warning {
+    border: 1px solid #e5deb8;
+    background-color: #fffde4;
+}
+/* 提示 */
+.message-box .msg-tips {
+    border: 1px solid #e5deb8;
+    background-color: #fffde4;
+}
+/* 帮助 */
+.message-box .msg-help {
+    border: 1px solid #eee;
+    background-color: #fefefe;
+}
+
+/** 表单框架 xhtml + css **/
+.ui-form-default {
+    font-size: 14px;
+    line-height: 32px;
+    color: #666;
+}
+.ui-form-default .ui-row {
+    zoom:1;
+}
+.ui-form-default .ui-row:after {
+    content: ' ';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    height: 0;
+}
+.ui-form-default .ui-row .label-box {
+    display: inline;
+    float: left;
+    width: 90px;
+    min-height: 32px;
+    text-align: right;
+    padding: 10px 10px 10px 0;
+}
+.ui-form-default .ui-row .input-box {
+    position: relative;
+    display: inline;
+    float: left;
+    min-width: 230px;
+    padding: 10px 0;
+}
+.ui-form-default .input-box input:focus+.ui-ico {
+    display: none;
+}
+.ui-form-default .input-box .ui-ico-16-username,
+.ui-form-default .input-box .ui-ico-16-password,
+.ui-form-default .input-box .ui-ico-16-email {
+    position: absolute;
+    right: 5px;
+    top: 20px;
+}
+.ui-form-default .ui-row .message-box {
+    display: inline;
+    float: left;
+    min-width: 290px;
+    margin: 0;
+    padding: 10px 0 10px 10px;
+}
+
+/** 表单框架 table **/
+table.ui-form-default{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+table.ui-form-default th,
+table.ui-form-default .th {
+    padding: 10px 5px;
+    border-top: 1px solid #dcdcdc;
+    background: #f5f5f5;
+}
+table.ui-form-default td{
+    padding: 10px 5px;
+}
+table.ui-form-default .input-title{
+    width: 140px;
+    padding-right: 10px;
+    text-align: right;
+}
+table.ui-form-default .input-item{
+}
+table.ui-form-default .input-desc{
+    padding-left: 10px;
+}
+
+/** 输入框风格 **/
+/* 状态：默认 */
+.ui-form-default input[type=text],
+.ui-form-default input[type=password],
+.ui-form-default textarea {
+    margin: 0;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    outline: none;
+}
+.ui-form-default input[type=text],
+.ui-form-default input[type=password] {
+    min-width: 210px;
+    height: 18px;
+    line-height: 18px;
+}
+.ui-form-default textarea {
+    min-width: 460px;
+    margin: 10px 0 0;
+    resize: vertical;
+}
+/* 状态：鼠标悬浮 */
+.ui-form-default input[type=text]:hover,
+.ui-form-default input[type=password]:hover,
+.ui-form-default textarea:hover {
+    border-color: #999;
+}
+/* 状态：获得焦点 */
+.ui-form-default input[type=text]:focus,
+.ui-form-default input[type=password]:focus,
+.ui-form-default textarea:focus {
+    border-color: #c9033b;
+    -webkit-box-shadow: inset 0 1px 2px 0px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 1px 2px 0px rgba(0, 0, 0, .1);
+}
+
+/** 表单控件禁用样式 **/
+.ui-form-default .disabled,
+.ui-form-default .disabled:hover,
+.ui-form-default .disabled:active,
+.ui-form-default .disabled:focus,
+.ui-form-default [disabled],
+.ui-form-default [disabled]:hover,
+.ui-form-default [disabled]:active,
+.ui-form-default [disabled]:focus {
+    color:#808080;
+    background:#eee;
+    text-shadow: none;
+    box-shadow: none;
+    cursor: default;
+}
+/** end **/
+
+/** 组件 - 全局按钮 **/
+/**
+ * @name    : 全局按钮UI
+ * @author  : kang
+ * @desc    : 可供PC & 移动端使用的通用按钮, 默认有以下几种样式风格
+ */
+/* 默认按钮 */
+.x-btn {
+    /* reset */
+    box-sizing: content-box;
+    background: none;
+    text-decoration: none;
+    cursor: pointer;
+    outline: 0;
+    text-decoration: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+
+    /* layout */
+    display: inline-block;
+    width: auto;
+    height: auto;
+    min-width: 5rem;
+    min-height: 1rem;
+    margin: 0;
+    padding: .8em 2rem;
+    text-align: center;
+    font: 1.6em/1 Helvetica, "Microsoft YaHei", sans-serif;
+
+    /* color */
+    background-color: #c14040;
+    border: 1px solid #c14040;
+    color: #fff;
+
+    /* other style */
+    border-radius: .3rem;
+}
+
+.x-btn:hover,
+.x-btn:focus {
+    background-color: #a83838;
+    color: #fff;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .3);
+}
+
+.x-btn:active {
+    color: #fff;
+    -webkit-transform: translateX(1px) translateY(1px);
+    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .2);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .2);
+}
+
+/* 块状按钮 */
+.x-btn-block {
+    display: block;
+}
+
+.x-btn-block:hover,
+.x-btn-block:focus {
+}
+
+.x-btn-block:active {
+}
+
+/* 长按钮 */
+.x-btn-long {
+    width: 10rem;
+}
+
+.x-btn-long:hover,
+.x-btn-long:focus {
+}
+
+.x-btn-long:active {
+}
+
+/* 镂空按钮 */
+.x-btn-hollow {
+    /* layout */
+    border: 1px solid #c14040;
+
+    /* color */
+    background-color: #fff;
+    color: #c14040;
+}
+
+.x-btn-hollow:hover,
+.x-btn-hollow:focus {
+    background-color: #f5f5f5;
+    color: #c14040;
+}
+
+.x-btn-hollow:active {
+    color: #c14040;
+}
+
+/* 禁用状态 */
+.x-btn[disabled],
+.x-btn[disabled]:hover,
+.x-btn[disabled]:focus,
+.x-btn[disabled]:active {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    background-color: #808080;
+    border-color: #808080;
+    color: white;
+}
+
+/** end **/
+
+/** 组件 - 图标 **/
+	/* 图标基础样式预定义 */
+.x-icon { display:inline-block;font-size:0;overflow:hidden;margin-right:5px;vertical-align:middle;
+    background: url(../images/sprite.png) no-repeat;
+}
+	/* 图标位置大小自定义列表 */
+.x-icon-button-download { width:248px;height:63px;background-position:0 0;}
+.x-icon-button-download:hover { background-position:0 -65px;}
+.x-icon-tqq-follow { width:119px;height:21px;background-position:0 -130px;}
+.x-icon-logo-split { width:1px;height:39px;background-position:-60px -195px;}
+
+/** end **/
+
+/** 组件 - 焦点图 focus demo **/
+#focus {
+    position: relative;
+    width: 514px;
+    height: 335px;
+    overflow: hidden;
+}
+#focus .triggers {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+#focus .triggers a {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    background: #fff;
+    opacity: .4;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+#focus .triggers a.current {
+    width: 40px;
+    opacity: .6;
+}
+#focus .targets .item {
+    width: 514px;
+    height: 335px;
+    float: left;
+}
+/** end **/
+
+/**
+* @name		: Global CSS类 - 全站基础风格样式
+* @author	: kang
+* @desc 	:
+*/
+
+/* 全局CSS */
+html {
+    overflow-y: scroll;
+    font-size: 10px;
+}
+
+body {
+    background: #fff;
+    color: #404040;
+    cursor: default;
+}
+
+body, button, input, select, textarea {
+    font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', \5b8b\4f53, sans-serif;
+}
+
+a {
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0073ff;
+    text-decoration: underline; /*-webkit-transition:.2s color ease-out;-moz-transition:.2s color ease-out;transition:.2s color ease-out;*/
+}
+
+button {
+    cursor: pointer;
+}
+
+::selection {
+    background: rgba(0, 115, 255, .8);
+    color: #fefefe;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+}
+
+.wrapper {
+    width: 1038px;  /* 页面默认宽度 */
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+}
+
+/** end **/
+
+/**
+* @name		: 头部样式
+* @author	: kang
+* @desc 	:
+*/
+
+/** 头部 **/
+#header {
+    height: 800px;
+    background: url("../images/headBG.png") center top;
+}
+
+/**
+* @name		: 底部样式
+* @author	: kang
+* @desc 	:
+*/
+#footer {
+    height: 245px;
+    background: #060606;
+    color: #eee;
+}
+
+/** end **/
+
+/**
+* @name		: 首页主体内容部分
+* @author	: hanjie
+* @desc 	:
+*/
+
+
+
+/** end **/
+
+/**
+* @name		: 内页 -
+* @author	: hanjie
+* @desc 	:
+*/
+
+
+
+/** end **/

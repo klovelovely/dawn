@@ -1,0 +1,745 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+	<meta name="keywords" content="" />
+    <meta name="description" content="" />
+	<title>UI</title>
+
+	<!-- @import -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+	
+	<style>
+		
+		/* 测试代码开始：用于表示HTML基础结构，正式开发时可删除此段。 */
+		body {
+		margin:0;
+		font-family: "Arial";
+		font-size: 12px;
+		color: #666666;
+		line-height: 150%;
+		}
+		h1, h2, h3, h4, h5, h6 {
+		font-size: 12px;
+		}
+		h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form, img, p {
+		margin: 0;
+		padding: 0;
+		border: none;
+		list-style-type: none;
+		}
+		
+		.h3 { min-width:200px;padding:1em;text-indent:2em;font-size:1.2em;}
+		#header,
+		#footer { height:80px;line-height:80px;text-align:center;font-size:2em;}
+		#header,
+		#footer { background:#f5f5f5;color:#c00;}
+		/* 测试代码结束 */
+
+		.us_contentBox { 
+			
+		}
+		.us_contentBox h6 { 
+			font-size:14px; 
+			line-height:2; 
+			text-indent:1em;
+		}
+		.us_contentBox table {
+			background: #fefefe;
+		}
+		.us_contentBox table td {
+			border:1px solid #eee;
+		}
+		
+		/**
+		* @name		: 全局颜色标准
+		* @author	: kang
+		* @version	: 1.0
+		* @type		: 公共
+		* @explain	: 颜色值标准，可以有明暗变化，但修改色相与饱和度时请谨慎。
+		* @relating	: -
+		* @dependent: -
+		*/
+			/* 价格 */
+		.price { 
+			color:#c9043a;
+		}
+			/* 重点（红色） */
+		.vi_focus { 
+			color:#c9043a;
+		}
+		.vi_focus:hover,
+		a.vi_focus:hover { 
+			color:#f00;
+		}
+			/* 链接（蓝色） */
+		.vi_links { 
+			color:#006bd0;
+		}
+		a.vi_links:hover {
+			color:#006bd0;
+			text-decoration: underline;
+		}
+			/* 链接（橙色） */
+		.vi_links { 
+			color:#fc6f04;
+		}
+		a.vi_links:hover {
+			color:#fc6f04;
+			text-decoration: underline;
+		}
+		
+		/**
+		* @name		: 全局组件 - 图标
+		* @author	: kang
+		* @version	: 1.0
+		* @type		: 公共
+		* @explain	: 提供统一风格的图标样式，建立稳固的UI视觉效果
+		* @relating	: -
+		* @dependent: -
+		*/
+		.ui_ico { display:inline-block;width:16px;height:16px;margin-right:5px;vertical-align:middle;background-image:url(PC/images/sprite_global.png); background-repeat:no-repeat;}
+			/* 16 x 16 */
+		.ui_ico_16_username { background-position:0 0;}
+		.ui_ico_16_password { background-position:0 -16px;}
+		.ui_ico_16_email { background-position:0 -32px;}
+		.ui_ico_16_success { background-position:0 -48px;}
+		.ui_ico_16_error { background-position:0 -64px;}
+		.ui_ico_16_tips { background-position:0 -80px;}
+		.ui_ico_16_help { background-position:0 -96px;}
+		.ui_ico_16_badge { background-position:0 -112px;}
+			/* 24 x 24 */
+		.ui_ico_24_company { width:24px;height:24px;background-position:-16px 0;}
+		.ui_ico_24_personal { width:24px;height:24px;background-position:-16px -24px;}
+			/* 32 x 32 */
+		.ui_ico_32_service { width:32px;height:32px;background-position:-40px 0;}
+		.ui_ico_32_protect { width:32px;height:32px;background-position:-40px -32px;}
+		
+		/**
+		* @name		: 全局组件 - 表单样式（默认UI）
+		* @author	: kang
+		* @version	: 1.0
+		* @type		: 公共
+		* @explain	: 提供统一的表单视觉效果，包含表单框架、表单元素UI（输入框、按钮等）
+		* @relating	: -
+		* @dependent: -
+		*/
+		
+		/** reset **/
+		.ui_form_default,
+		.ui_form_default input,
+		.ui_form_default button,
+		.ui_form_default textarea { 
+			margin: 0;
+			padding: 0;
+			font-size: 14px;
+		}
+		.ui_form_default span,
+		.ui_form_default strong,
+		.ui_form_default label,
+		.ui_form_default input,
+		.ui_form_default button,
+		.ui_form_default textarea { 
+			display: inline-block;
+			vertical-align: middle;
+		}
+		
+		/** 默认盒子样式 **/
+		.message_box {
+			margin: 5px 0;
+			font-size: 12px;
+		}
+		.message_box [class*='msg_'] {
+			
+			padding: 0 5px;
+			border: 1px solid #eee;
+			background-color: #fefefe;
+		}
+			/* 正确 */
+		.message_box .msg_success {
+			border: 1px solid #c7e5b8;
+			background-color: #f0ffe5;
+			_padding: 0 5px;
+		}
+			/* 错误 */
+		.message_box .msg_error {
+			border: 1px solid #e5c3c3;
+			background-color: #fff2f2;
+			_padding: 0 5px;
+		}
+			/* 警告 */
+		.message_box .msg_warning {
+			border: 1px solid #e5deb8;
+			background-color: #fffde4;
+			_padding: 0 5px;
+		}
+			/* 提示 */
+		.message_box .msg_tips {
+			border: 1px solid #e5deb8;
+			background-color: #fffde4;
+			_padding: 0 5px;
+		}
+			/* 帮助 */
+		.message_box .msg_help {
+			border: 1px solid #eee;
+			background-color: #fefefe;
+			_padding: 0 5px;
+		}
+		
+		/** 表单框架 xhtml + css **/
+		.ui_form_default {
+			font-size: 14px;
+			line-height: 32px;
+			color: #666;
+		}
+		.ui_form_default .ui_row {
+			zoom:1;
+		}
+		.ui_form_default .ui_row:after {
+			content: ' ';
+			display: block;
+			clear: both;
+			visibility: hidden;
+			font-size: 0;
+			height: 0;
+		}
+		.ui_form_default .ui_row .label_box {
+			display: inline;
+			float: left;
+			width: 90px;
+			min-height: 32px;
+			text-align: right;
+			padding: 10px 10px 10px 0;
+		}
+		.ui_form_default .ui_row .input_box {
+			position: relative;
+			display: inline;
+			float: left;
+			min-width: 230px;	
+			padding: 10px 0;
+		}
+		.ui_form_default .input_box input:focus+.ui_ico {
+			display: none;
+		}
+		.ui_form_default .input_box .ui_ico_16_username,
+		.ui_form_default .input_box .ui_ico_16_password,
+		.ui_form_default .input_box .ui_ico_16_email { 
+			position: absolute;
+			right: 5px;
+			top: 20px;
+		}
+		.ui_form_default .ui_row .message_box {
+			display: inline;
+			float: left;
+			min-width: 290px;
+			margin: 0;
+			padding: 10px 0 10px 10px;
+		}
+		
+		/** 表单框架 table **/
+		table.ui_form_default{
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+		table.ui_form_default th,
+		table.ui_form_default .th {
+			padding: 10px 5px;
+			border-top: 1px solid #dcdcdc;
+			background: #f5f5f5;
+		}
+		table.ui_form_default td{
+			padding: 10px 5px;	
+		}
+		table.ui_form_default .input_title{
+			width: 140px;
+			padding-right: 10px;
+			text-align: right;
+		}
+		table.ui_form_default .input_item{
+		}
+		table.ui_form_default .input_desc{
+			padding-left: 10px;
+		}
+		
+		/** 表单框架 内部 table **/
+		.ui_form_default table{
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+		.ui_form_default table th,
+		.ui_form_default table .th {
+			padding: 10px 5px;
+			border-top: 1px solid #dcdcdc;
+			background: #f5f5f5;
+		}
+		.ui_form_default table td{
+			padding: 10px 5px;	
+		}
+		.ui_form_default table .input_title{
+			width: 140px;
+			padding-right: 10px;
+			text-align: right;
+		}
+		.ui_form_default table .input_item{
+		}
+		.ui_form_default table .input_desc{
+			padding-left: 10px;
+		}
+		
+		/** 数据表格 **/
+		.ui_table_data{}
+		
+		/** 输入框风格 **/
+			/* 状态：默认 */
+		.ui_form_default input[type=text],
+		.ui_form_default input[type=password],
+		.ui_form_default textarea {
+			margin: 0;
+			padding: 6px; 
+			border: 1px solid #ccc;
+			border-radius: 2px;
+			outline: none;
+		}
+		.ui_form_default input[type=text],
+		.ui_form_default input[type=password] {
+			min-width: 210px;
+			height: 18px;
+			line-height: 18px;
+		}
+		.ui_form_default textarea {
+			min-width: 460px;
+			_width: 460px;
+			margin: 10px 0 0;
+			resize: vertical;
+		}
+			/* 状态：鼠标悬浮 */
+		.ui_form_default input[type=text]:hover,
+		.ui_form_default input[type=password]:hover,
+		.ui_form_default textarea:hover {
+			border-color: #999;
+		}
+			/* 状态：获得焦点 */
+		.ui_form_default input[type=text]:focus,
+		.ui_form_default input[type=password]:focus,
+		.ui_form_default textarea:focus {
+			border-color: #c9033b;
+			-webkit-box-shadow: inset 0 1px 2px 0px rgba(0, 0, 0, .1);
+	        box-shadow: inset 0 1px 2px 0px rgba(0, 0, 0, .1);
+		}
+		
+		/** 默认按钮样式 **/
+			/* 状态：默认 */
+		.ui_form_default .button{ 
+			display: inline-block;
+			min-width: 150px;
+			_width: 150px;
+			min-height: 22px;
+			_height: 22px;
+			line-height: 22px;
+			margin: 0 10px 0 0;
+			padding: 6px 20px;
+			border: 0 none;
+			vertical-align: middle;
+			text-align: center;
+			font-size: 14px;
+			font-family: STHeiti, Droid Sans Fallback, 'Microsoft Yahei', SimHei;
+			text-decoration: none;
+			outline: none;
+			cursor: pointer;
+			border-radius: 3px;
+			color: #fff;
+			background: #da0044; /* Old browsers */
+			background: -moz-linear-gradient(top,  #da0044 0%, #c9033b 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#da0044), color-stop(100%,#c9033b)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  #da0044 0%,#c9033b 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  #da0044 0%,#c9033b 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  #da0044 0%,#c9033b 100%); /* IE10+ */
+			background: linear-gradient(to bottom,  #da0044 0%,#c9033b 100%); /* W3C */
+			_overflow: visible;
+		}
+			/* 状态：悬浮、焦点 */
+		.ui_form_default .button:hover,
+		.ui_form_default .button:focus {
+			background: #b70142;
+		}
+			/* 状态：激活 */
+		.ui_form_default .button:active {
+			color:#fdfdfd;
+			text-shadow: -1px 0px 0px rgba(0,0,0,.6);
+			-webkit-box-shadow: inset 0 2px 4px 0px rgba(0, 0, 0, .4);
+	        box-shadow: inset 0 2px 4px 0px rgba(0, 0, 0, .4);
+		}
+		
+		/** 主要按钮样式 **/
+			/* 状态：默认 */
+		.ui_form_default .primary{
+			min-width: 210px;
+			_width: 210px;
+			padding: 8px 20px;
+			font-size: 18px;
+			font-weight: bold;
+		}
+			/* 状态：悬浮、 */
+		.ui_form_default .primary:hover,
+		.ui_form_default .primary:focus {
+			
+		}
+			/* 状态：激活 */
+		.ui_form_default .primary:active { 
+			
+		}
+		
+		/** 普通、次要按钮样式 **/
+			/* 状态：默认 */
+		.ui_form_default .secondary {
+			font-size: 14px;
+			background: #e5e5e5;
+			color: #404040;
+		}
+			/* 状态：悬浮、焦点 */
+		.ui_form_default .secondary:hover,
+		.ui_form_default .secondary:focus {
+			background: #ddd;
+			color: #000;
+		}
+			/* 状态：激活 */
+		.ui_form_default .secondary:active {
+			text-shadow: -1px 0px 0px rgba(0,0,0,.1);
+			-webkit-box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, .3);
+	        box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, .3);
+		}
+		
+		/** 短按钮样式 **/
+		.ui_form_default .short {
+			min-width: auto;
+			_width: auto;
+		}
+		
+		/** 小型按钮样式 **/
+			/* 状态：默认 */
+		.ui_form_default .smaller {
+			min-width: 60px;
+			_width: 60px;
+			padding: 0 10px;
+			font-size: 12px;
+			font-family: SimSun;
+			border: 1px solid #ccc;
+			background: #eee;
+			color: #404040;
+		}
+			/* 状态：悬浮、焦点 */
+		.ui_form_default .smaller:hover,
+		.ui_form_default .smaller:focus {
+			background: #ddd;
+			color: #000;
+		}
+			/* 状态：激活 */
+		.ui_form_default .smaller:active {
+			text-shadow: none;
+			-webkit-box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, .3);
+	        box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, .3);
+		}
+		
+		/** 橙色按钮样式 **/
+			/* 状态：默认 */
+		.ui_form_default .orange {
+			background: #eee;
+			color: #404040;
+		}
+			/* 状态：悬浮、焦点 */
+		.ui_form_default .orange:hover,
+		.ui_form_default .orange:focus {
+			border: 1px solid #ff6f04;
+			background: #ff6f04;
+			color: #fff;
+		}
+			/* 状态：激活 */
+		.ui_form_default .orange:active {
+			text-shadow: none;
+			-webkit-box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, .3);
+	        box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, .3);
+		}
+		
+		/** 默认激活的橙色按钮样式 **/
+			/* 状态：默认 */
+		.ui_form_default .orange_actived {
+			border: 1px solid #ff6f04;
+			background: #ff6f04;
+			color: #eee;
+		}
+			/* 状态：悬浮、焦点 */
+		.ui_form_default .orange_actived:hover,
+		.ui_form_default .orange_actived:focus {
+			border: 1px solid #e56605;
+			background: #e56605;
+			color: #fff;
+		}
+			/* 状态：激活 */
+		.ui_form_default .orange:active {
+			text-shadow: none;
+			-webkit-box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, .3);
+	        box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, .3);
+		}
+		
+		/** select下拉菜单样式 **/
+		.ui_form_default select {
+			padding: 4px;
+			border: 1px solid;
+			border-color: #aaa #ddd #ddd #aaa;
+			color: #404040;
+		}
+			/* 状态：悬浮、焦点 */
+		.ui_form_default select:hover,
+		.ui_form_default select:focus {
+			background: #fff;
+			color: #000;
+		}
+			/* 状态：激活 */
+		.ui_form_default select:active {
+			text-shadow: none;
+			-webkit-box-shadow: none;
+	        box-shadow: none;
+		}
+		
+		/** 表单控件禁用样式 **/
+		.ui_form_default .disabled,
+		.ui_form_default .disabled:hover,
+		.ui_form_default .disabled:active,
+		.ui_form_default .disabled:focus,
+		.ui_form_default [disabled],
+		.ui_form_default [disabled]:hover,
+		.ui_form_default [disabled]:active,
+		.ui_form_default [disabled]:focus {
+			color:#808080;
+			background:#eee;
+			text-shadow: none;
+			box-shadow: none;
+			cursor: default;
+		}
+		
+		/** IE6 hacks **/
+		.ui_form_default .ie6_input{
+			_width: 210px;
+			_height: 20px;
+			_margin: 0;
+			_padding: 6px 5px 3px;
+		}
+		
+	</style>
+
+</head>
+
+<body>
+
+    <!-- #header S -->
+    <div id="header">
+		<div class="wrapper clearfix">
+
+            header
+
+        </div>
+    </div>
+    <!-- #header E -->
+
+    <!-- #content S -->
+    <div id="container">
+        <div class="wrapper clearfix">
+
+            <h2 class="h2">表格</h2>
+            <div class="us_contentBox">
+                <h6>我的订单</h6>
+                <table class="ui_form_default" width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr align="center">
+                        <td bgcolor="#ffffff">订单号</td>
+                        <td bgcolor="#ffffff">下单时间</td>
+                        <td bgcolor="#ffffff">订单总金额</td>
+                        <td bgcolor="#ffffff">订单状态</td>
+                        <td bgcolor="#ffffff">操作</td>
+                    </tr>
+                    <tr align="center">
+                        <td bgcolor="#ffffff">1231312132654</td>
+                        <td bgcolor="#ffffff">2013-11-04 10:16:02</td>
+                        <td bgcolor="#ffffff">58600</td>
+                        <td bgcolor="#ffffff"><strong class="vi_orange">待支付</strong></td>
+                        <td bgcolor="#ffffff">操作</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            
+            <hr />
+
+            <form class="ui_form_default" action="index.sample.html" method="get" name="form1">
+            	<h2 class="h2">A级</h2>
+                
+                <h3 class="h3">table</h3>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="input_title"><label for="tbl_username">用户名</label></td>
+                        <td class="input_item"><input id="tbl_username" name="tbl_username" type="text" class="ie6_input" /></td>
+                        <td class="input_desc"><em class="message_box"></em></td>
+                    </tr>
+                    <tr>
+                        <td class="input_title"><label for="tbl_userpass">密　码</label></td>
+                        <td class="input_item"><input id="tbl_userpass" name="tbl_userpass" type="password" class="ie6_input" /></td>
+                        <td class="input_desc"><em class="message_box"></em></td>
+                    </tr>
+                    <tr>
+                    	<td class="input_title"></td>
+                    	<td class="input_item" colspan="3"><button class="button primary" type="submit">登　　录</button></td>
+                    </tr>
+                </table>
+                
+                <hr />
+                
+                <h3 class="h3">xhtml + css</h3>
+                <div class="ui_row">
+                    <span class="label_box"><label for="username">用户名</label></span>
+                    <span class="input_box"><input id="username" name="username" type="text" class="ie6_input" /><label for="username" class="ui_ico ui_ico_16_username PNGFIX"></label></span>
+                    <div class="message_box">
+                        <div class="msg_success">
+                            <i class="ui_ico ui_ico_16_success PNGFIX"></i><span>用户名正确</span>
+                        </div>
+                    </div>
+				</div>
+                <div class="ui_row">
+                    <span class="label_box"><label for="email">邮　箱</label></span>
+                    <span class="input_box"><input id="email" name="email" type="text" class="ie6_input" /><label for="email" class="ui_ico ui_ico_16_email PNGFIX"></label></span>
+                    <div class="message_box">
+                        <div class="msg_success">
+                            <i class="ui_ico ui_ico_16_success PNGFIX"></i><span>邮箱格式正确</span>
+                        </div>
+                    </div>
+				</div>
+                <div class="ui_row">
+                    <span class="label_box"><label for="password">密　码</label></span>
+                    <span class="input_box"><input id="password" name="userpass" type="password" class="ie6_input" /><label for="password" class="ui_ico ui_ico_16_password PNGFIX"></label></span>
+                    <div class="message_box">
+                        <div class="msg_error">
+                            <i class="ui_ico ui_ico_16_error PNGFIX"></i><span>登录密码不能少于6个字符</span>
+                        </div>
+                    </div>
+				</div>
+                <div class="ui_row">
+                    <span class="label_box"><label for="confirm_password">确认密码</label></span>
+                    <span class="input_box"><input id="confirm_password" name="confirm_password" type="password" class="ie6_input" /><label for="confirm_password" class="ui_ico ui_ico_16_password PNGFIX"></label></span>
+                    <div class="message_box">
+                        <div class="msg_error">
+                            <i class="ui_ico ui_ico_16_error PNGFIX"></i><span>两次密码输入不一致</span>
+                        </div>
+                    </div>
+				</div>
+                <div class="ui_row">
+                    <span class="label_box"></span>
+                    <span class="input_box"><button class="button primary" type="submit">登　　录</button></span>
+                    <div class="message_box">
+                        <div class="msg_tips">
+                            <i class="ui_ico ui_ico_16_tips PNGFIX"></i><span><strong>提示：</strong>您可以选择保存账户名，以方便下次登录。</span>
+                        </div>
+                    </div>
+				</div>
+                <div class="message_box">
+                    <div class="msg_tips">
+                        <i class="ui_ico ui_ico_16_tips PNGFIX"></i><span>请不要在公用电脑上使用此功能！</span>
+                    </div>
+                </div>
+                <div class="message_box">
+                    <div class="msg_help">
+                        <i class="ui_ico ui_ico_16_help PNGFIX"></i><span>选择保存账户名，可以让您在下次登陆时只需输入密码即可登录。</span>
+                    </div>
+                </div>
+                
+                <hr />
+                
+                <h3 class="h3">16 * 16</h3>
+                <div>
+                	<i class="ui_ico ui_ico_16_username PNGFIX"></i>
+                    <i class="ui_ico ui_ico_16_password PNGFIX"></i>
+                    <i class="ui_ico ui_ico_16_email PNGFIX"></i>
+                	<i class="ui_ico ui_ico_16_success PNGFIX"></i>
+                    <i class="ui_ico ui_ico_16_error PNGFIX"></i>
+                    <i class="ui_ico ui_ico_16_tips PNGFIX"></i>
+                    <i class="ui_ico ui_ico_16_help PNGFIX"></i>
+                	<i class="ui_ico ui_ico_16_badge PNGFIX"></i>
+                </div>
+                
+                <h3 class="h3">24 * 24</h3>
+                <div>
+                	<i class="ui_ico ui_ico_24_company PNGFIX"></i>
+                    <i class="ui_ico ui_ico_24_personal PNGFIX"></i>
+                </div>
+                
+                <h3 class="h3">32 * 32</h3>
+                <div>
+                    <i class="ui_ico ui_ico_32_service PNGFIX"></i>
+                    <i class="ui_ico ui_ico_32_protect PNGFIX"></i>
+                </div>
+                
+                <hr />
+                
+                <a class="button" href="javascript:;">继续购物</a>
+                <button class="button" type="button">继续购物</button>
+                <button class="button primary" type="button">继续购物</button>
+                <button class="button secondary" type="button">继续购物</button>
+                <button class="button smaller" type="button">继续购物</button>
+                <button class="button smaller orange" type="button">继续购物</button>
+                <button class="button smaller orange_actived" type="button">继续购物</button>
+                <button class="button disabled" disabled type="button">继续购物</button>
+                <textarea cols="10" rows="5"></textarea>
+                
+                <hr />
+                
+                <h2 class="h2">B级</h2>
+                <input type="checkbox" />
+                <input type="radio" />
+                <input type="file" value="01" />
+                <select name="country" id="selCountries_0">
+					<!--  <option value="0">请选择国家</option>-->
+					<option value="1" selected="">中国</option>
+				</select>
+                
+                <hr />
+                
+                <h2 class="h2">C级</h2>
+                <input type="hidden" />
+                <input type="image" />
+            	<input type="reset" />
+            </form>
+
+        </div>
+    </div>
+    <!-- #content E -->
+
+    <!-- #footer S -->
+    <div id="footer">
+        
+		<div class="wrapper clearfix">
+
+            footer
+
+        </div>
+        
+    </div>
+    <!-- #footer E -->
+    
+    <!-- @import -->
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script> -->
+    <script type="text/javascript" src="PC/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript">
+		
+    </script>
+
+    <!--[if lte IE 6]>
+    <script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script type="text/javascript"> DD_belatedPNG.fix(".PNGFIX");</script>
+    <script type="text/javascript">try {
+        document.execCommand('BackgroundImageCache', false, true);
+    } catch (e) {
+    }</script>
+    <![endif]-->
+
+</body>
+</html>
