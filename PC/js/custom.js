@@ -26,7 +26,7 @@ $(function () {
      */
         // 普通对话框
     $('.artDialog1').on('click', function () {
-        var artDialog1 = dialog({
+        var d1 = dialog({
             title: '消息',
             content: $(this).text(),
             fixed: true,
@@ -36,25 +36,25 @@ $(function () {
             },
             quickClose: true
         });
-        artDialog1.show();
+        d1.show();
     });
 
         //模态对话框
     $('.artDialog2').on('click', function () {
-        var artDialog2 = dialog({
+        var d2 = dialog({
             content: $(this).text(),
             quickClose: true
         });
-        artDialog2.showModal();
+        d2.showModal();
     });
 
         //气泡对话框
     $('.artDialog3').on('click', function () {
-        var artDialog3 = dialog({
-            content: $(this).text(),
-            quickClose: true
+        var d = dialog({
+            content: 'Hello World!',
+            quickClose: true// 点击空白处快速关闭
         });
-        artDialog3.show($('.artDialog3'));
-    })
+        d.show($('#quickref-bubble')[0]);
+    });
 
 });
