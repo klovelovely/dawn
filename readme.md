@@ -56,6 +56,8 @@ jquery.plugins
   hammer
   webuploader
   qrcode
+  
+  autocomplete
 
 util
 custom
